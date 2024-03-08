@@ -129,7 +129,7 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
                 ),
               ),
             ),
-            body: ScrollablePositionedList.builder(
+            body: ScrollablePositionedList.separated(
               itemCount: data.length,
               itemPositionsListener: _itemPositionsListener,
               itemScrollController: _itemScrollController,
@@ -168,6 +168,9 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
                     ),
                   ],
                 );
+              },
+              separatorBuilder: (context, index) {
+                return const Gap(16);
               },
             ),
           );
