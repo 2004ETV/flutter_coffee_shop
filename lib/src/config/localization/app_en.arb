@@ -1,0 +1,8 @@
+{
+  "@@locale": "en",
+  "@segmentCommon": {
+    "---------": "---------",
+    "description": "Common"
+  },
+  "currencySymbol": "RUB"
+}
