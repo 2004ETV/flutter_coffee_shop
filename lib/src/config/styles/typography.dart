@@ -10,7 +10,7 @@ abstract class AppTypography {
   );
 
   static const robotoRegular14 = TextStyle(
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: FontWeight.w400,
     letterSpacing: .25,
   );
@@ -19,6 +19,12 @@ abstract class AppTypography {
     fontSize: 16,
     fontWeight: FontWeight.w500,
     letterSpacing: .15,
+  );
+
+  static const robotoBold24 = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w700,
+    letterSpacing: .25,
   );
 
   static const robotoSemiBold32 = TextStyle(

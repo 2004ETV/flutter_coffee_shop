@@ -7,6 +7,7 @@ class ThemeTypography extends ThemeExtension<ThemeTypography> {
     required this.robotoRegular12,
     required this.robotoRegular14,
     required this.robotoMedium16,
+    required this.robotoBold24,
     required this.robotoSemiBold32,
   });
 
@@ -20,6 +21,9 @@ class ThemeTypography extends ThemeExtension<ThemeTypography> {
         robotoMedium16 = AppTypography.robotoMedium16.copyWith(
           color: color,
         ),
+        robotoBold24 = AppTypography.robotoSemiBold32.copyWith(
+          color: color,
+        ),
         robotoSemiBold32 = AppTypography.robotoSemiBold32.copyWith(
           color: color,
         );
@@ -30,6 +34,7 @@ class ThemeTypography extends ThemeExtension<ThemeTypography> {
   final TextStyle robotoRegular12;
   final TextStyle robotoRegular14;
   final TextStyle robotoMedium16;
+  final TextStyle robotoBold24;
   final TextStyle robotoSemiBold32;
 
   @override
@@ -37,12 +42,14 @@ class ThemeTypography extends ThemeExtension<ThemeTypography> {
     TextStyle? robotoRegular12,
     TextStyle? robotoRegular14,
     TextStyle? robotoMedium16,
+    TextStyle? robotoBold24,
     TextStyle? robotoSemiBold32,
   }) {
     return ThemeTypography._(
       robotoRegular12: robotoRegular12 ?? this.robotoRegular12,
       robotoRegular14: robotoRegular14 ?? this.robotoRegular14,
       robotoMedium16: robotoRegular12 ?? this.robotoMedium16,
+      robotoBold24: robotoBold24 ?? this.robotoBold24,
       robotoSemiBold32: robotoRegular12 ?? this.robotoSemiBold32,
     );
   }
@@ -70,6 +77,11 @@ class ThemeTypography extends ThemeExtension<ThemeTypography> {
       robotoMedium16: TextStyle.lerp(
         robotoMedium16,
         other.robotoMedium16,
+        t,
+      )!,
+      robotoBold24: TextStyle.lerp(
+        robotoBold24,
+        other.robotoBold24,
         t,
       )!,
       robotoSemiBold32: TextStyle.lerp(

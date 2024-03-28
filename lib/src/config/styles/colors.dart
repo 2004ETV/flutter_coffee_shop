@@ -5,4 +5,5 @@ abstract class AppColors {
 
   static const darkSkyBlue = Color(0xFF85C3DE);
   static const mintCream = Color(0xFFF7FAF8);
+  static const lightSilver = Color(0xFFD9D9D9);
 }
