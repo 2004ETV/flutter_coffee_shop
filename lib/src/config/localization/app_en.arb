@@ -4,5 +4,6 @@
     "---------": "---------",
     "description": "Common"
   },
-  "currencySymbol": "RUB"
+  "amountWithSymbol": "{value} USD",
+  "unexpectedErrorMessage": "Unexpected error occurred"
 }

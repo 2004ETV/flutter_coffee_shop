@@ -4,5 +4,13 @@
     "---------": "---------",
     "description": "Common"
   },
-  "currencySymbol": "руб"
+  "amountWithSymbol": "{value} руб",
+  "@currencySymbol": {
+    "placeholders": {
+      "value": {
+        "type": "double"
+      }
+    }
+  },
+  "unexpectedErrorMessage": "Произошла непредвиденная ошибка"
 }
