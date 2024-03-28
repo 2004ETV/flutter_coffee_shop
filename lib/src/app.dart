@@ -21,7 +21,6 @@ class App extends ConsumerWidget {
         statusBarIconBrightness: Brightness.dark,
       ),
     );
-
     return GestureDetector(
       onTap: focusManager.primaryFocus?.unfocus,
       child: MaterialApp.router(
