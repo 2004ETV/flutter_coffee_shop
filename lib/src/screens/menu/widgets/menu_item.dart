@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_coffee_shop/src/common/assets/assets.dart';
+import 'package:flutter_coffee_shop/src/api/products/domain/models/product_domain.dart';
 import 'package:flutter_coffee_shop/src/common/extensions/context_extensions.dart';
 import 'package:flutter_coffee_shop/src/common/extensions/widget_extensions.dart';
 import 'package:flutter_coffee_shop/src/common/widgets/primary_button.dart';
 import 'package:flutter_coffee_shop/src/config/styles/styles.dart';
-import 'package:flutter_coffee_shop/src/repo/menu/models.dart';
 import 'package:flutter_coffee_shop/src/screens/menu/widgets/counter_block.dart';
+import 'package:flutter_coffee_shop/src/screens/menu/widgets/product_item_image.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 
@@ -20,18 +20,16 @@ class MenuItem extends StatelessWidget {
     required this.count,
   });
 
-  final CategoryItemModel model;
+  final ProductDomain model;
   final GestureTapCallback onTap;
-  final ValueChanged<String> onIncrement;
-  final ValueChanged<String> onDecrement;
-  final ValueChanged<String> onPressed;
-  final int? count;
+  final ValueChanged<ProductDomain> onIncrement;
+  final ValueChanged<ProductDomain> onDecrement;
+  final ValueChanged<ProductDomain> onPressed;
+  final int count;
 
   @override
   Widget build(BuildContext context) {
-    final currencyFormatter = NumberFormat.currency(
-      symbol: context.tr.currencySymbol,
-    );
+    final currentLanguage = Intl.getCurrentLocale();
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(
@@ -43,13 +41,9 @@ class MenuItem extends StatelessWidget {
           onTap: onTap,
           child: Column(
             children: [
-              if (model.image == null)
-                Image.asset(Assets.imagesPlaceholder)
-              else
-                Image.asset(
-                  model.image!,
-                  height: 100,
-                ),
+              ProductItemImage(
+                imageUrl: model.imageUrl,
+              ),
               const Gap(8),
               Text(
                 model.name,
@@ -58,17 +52,23 @@ class MenuItem extends StatelessWidget {
                 maxLines: 1,
               ),
               const Spacer(),
-              if (count != null && count! != 0)
+              if (count != 0)
                 CounterBlock(
-                  onIncrement: () => onIncrement(model.id),
-                  onDecrement: () => onDecrement(model.id),
-                  count: count!,
+                  onIncrement: () => onIncrement(model),
+                  onDecrement: () => onDecrement(model),
+                  count: count,
                 )
               else
                 PrimaryButton(
-                  onPressed: () => onPressed(model.id),
+                  onPressed: () => onPressed(model),
                   child: Text(
-                    currencyFormatter.format(model.price),
+                    context.tr.amountWithSymbol(
+                      double.parse(
+                        currentLanguage == 'ru_RU'
+                            ? model.prices[0].price
+                            : model.prices[1].price,
+                      ),
+                    ),
                   ),
                 ),
             ],
