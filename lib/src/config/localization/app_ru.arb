@@ -1,0 +1,16 @@
+{
+  "@@locale": "ru",
+  "@segmentCommon": {
+    "---------": "---------",
+    "description": "Common"
+  },
+  "amountWithSymbol": "{value} руб",
+  "@currencySymbol": {
+    "placeholders": {
+      "value": {
+        "type": "double"
+      }
+    }
+  },
+  "unexpectedErrorMessage": "Произошла непредвиденная ошибка"
+}

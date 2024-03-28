@@ -1,0 +1,9 @@
+{
+  "@@locale": "en",
+  "@segmentCommon": {
+    "---------": "---------",
+    "description": "Common"
+  },
+  "amountWithSymbol": "{value} USD",
+  "unexpectedErrorMessage": "Unexpected error occurred"
+}
